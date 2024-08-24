@@ -13,6 +13,9 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 csv_path = os.path.join(dir_path, 'startup_cleaned.csv')
 
 df = pd.read_csv(csv_path)
+st.write("Files in directory:", os.listdir(os.getcwd()))
+
+st.write("Current working directory:", os.getcwd())
 
 
 df['date'] = pd.to_datetime(df['date'], errors='coerce')
