@@ -1,17 +1,19 @@
 import streamlit as st
 import pandas as pd
+import os
 import matplotlib.pyplot as plt
 
 st.set_page_config(layout="wide", page_title='Startup Analysis')
 
 # df = pd.read_csv("startup_cleaned.csv",encoding="utf-8")
-try:
-    df = pd.read_csv(r'C:\Users\VARUN\PycharmProjects\StreamlitApp\pythonProject\startup_cleaned.csv')
-    st.write(df.head())  # Streamlit way to display the dataframe
-except FileNotFoundError:
-    st.error("File not found.")
-except Exception as e:
-    st.error(f"An error occurred: {e}")
+
+# Get the directory of the current script
+dir_path = os.path.dirname(os.path.realpath(__file__))
+# Construct the full path to the CSV file
+csv_path = os.path.join(dir_path, 'startup_cleaned.csv')
+
+df = pd.read_csv(csv_path)
+
 
 df['date'] = pd.to_datetime(df['date'], errors='coerce')
 df['year']=df['date'].dt.year
