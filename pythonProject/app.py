@@ -6,7 +6,7 @@ st.set_page_config(layout="wide", page_title='Startup Analysis')
 
 # df = pd.read_csv("startup_cleaned.csv",encoding="utf-8")
 try:
-    df = pd.read_csv('startup_cleaned.csv')
+    df = pd.read_csv(r'C:\Users\VARUN\PycharmProjects\StreamlitApp\pythonProject\startup_cleaned.csv')
     st.write(df.head())  # Streamlit way to display the dataframe
 except FileNotFoundError:
     st.error("File not found.")
